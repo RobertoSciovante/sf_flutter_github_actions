@@ -58,6 +58,12 @@ jobs:
       - name: Build Flutter
         run: flutter build ios --release --no-codesign
 
+      - name: Upload Runner.app
+        uses: actions/upload-artifact@v1
+        with:
+          name: ios-release-production-no-codesign-manual.app
+          path: build/ios/iphoneos/Runner.app
+
       - name: Build resolve Swift dependencies
         run: xcodebuild -resolvePackageDependencies -workspace ios/Runner.xcworkspace -scheme ${{ env.SHEME }} -configuration ${{ env.BUILD_CONFIGURATION }}
 
@@ -78,7 +84,7 @@ jobs:
       - name: Export ipa
         run: xcodebuild -exportArchive -archivePath build-output/app.xcarchive -exportPath build-output/ios -exportOptionsPlist ios/ExportOptions.plist
 
-      - name: Publish iOS Artefacts
+      - name: Upload iOS Artefacts
         uses: actions/upload-artifact@v1
         with:
           name: release-ios
