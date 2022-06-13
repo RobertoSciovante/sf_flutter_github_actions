@@ -1,4 +1,4 @@
-name: iOS - Example xcodebuild (1)
+name: iOS - List project (1)
 
 on:
   workflow_dispatch:
