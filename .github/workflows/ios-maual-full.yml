@@ -1,4 +1,4 @@
-name: iOS Release (1)
+name: iOS Manual Full (1)
 
 on:
   workflow_dispatch:
