@@ -2,8 +2,8 @@ name: iOS Release (1)
 
 on:
   workflow_dispatch:
-#  push:
-#    branches: [master]
+  push:
+    branches: [master]
 
 #  push:
 #    branches: [main]
@@ -71,7 +71,8 @@ jobs:
           -destination 'generic/platform=iOS' \
           -archivePath build-output/app.xcarchive \
           clean archive \
-          CODE_SIGN_IDENTITY="Apple Development"
+          CODE_SIGN_IDENTITY="Apple Development" \
+          -allowProvisioningUpdates
 
 #      - name: Build xArchive (manual)
 #        run: |
