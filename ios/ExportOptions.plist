@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+    "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <dict>
+        <key>method</key>
+        <string>app-store</string> <!-- app-store, ad-hoc, enterprise, development -->
+
+        <key>teamID</key>
+        <string>ZS99A4QXZW</string>
+
+        <key>signingStyle</key>
+        <string>manual</string>
+
+        <key>provisioningProfiles</key>
+
+        <dict>
+            <key>com.startingfinance.startingFinance</key>
+            <string>4136756c-cd4d-4e07-b422-309170a22b51</string>
+        </dict>
+    </dict>
+</plist>
+
