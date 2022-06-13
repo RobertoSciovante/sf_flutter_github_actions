@@ -64,7 +64,7 @@ jobs:
           -workspace ios/Runner.xcworkspace \
           -scheme ${{ env.SHEME }} \
           -configuration ${{ env.BUILD_CONFIGURATION }} \
-          DEVELOPMENT_TEAM= ${{ env.TEAM_ID }} \
+          DEVELOPMENT_TEAM=${{ env.TEAM_ID }} \
           -sdk 'iphoneos' \
           -destination 'generic/platform=iOS' \
           -archivePath build-output/app.xcarchive \
