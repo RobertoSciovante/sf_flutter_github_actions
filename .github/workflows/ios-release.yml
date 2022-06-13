@@ -2,6 +2,8 @@ name: iOS Release (1)
 
 on:
   workflow_dispatch:
+  push:
+    branches: [master]
 
 #  push:
 #    branches: [main]
