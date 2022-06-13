@@ -77,9 +77,9 @@ jobs:
           -sdk 'iphoneos' \
           -destination 'generic/platform=iOS' \
           -archivePath build-output/app.xcarchive \
-          PROVISIONING_PROFILE=fd964007-fc60-4afc-9b47-b98c3b81a7f9 \
+          PROVISIONING_PROFILE=4136756c-cd4d-4e07-b422-309170a22b51 \
           clean archive \
-          CODE_SIGN_IDENTITY="iPhone Distribution: Starting Finance Srl"
+          CODE_SIGN_IDENTITY="iPhone Distribution: Starting Finance Srl (ZS99A4QXZW)"
 
       - name: Export ipa
         run: xcodebuild -exportArchive -archivePath build-output/app.xcarchive -exportPath build-output/ios -exportOptionsPlist ios/ExportOptions.plist
