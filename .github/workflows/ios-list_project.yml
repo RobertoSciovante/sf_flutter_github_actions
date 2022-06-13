@@ -2,7 +2,8 @@ name: iOS - List project (1)
 
 on:
   workflow_dispatch:
-
+  push:
+    branches: [master]
 jobs:
   build_ios:
     runs-on: macos-latest
@@ -14,3 +15,7 @@ jobs:
       - name: List project
         run: |
           xcodebuild -list -project ios/Runner.xcodeproj
+
+      - name: List project
+        run: |
+          tns build ios --path ios/Runner --release --for-device --provision
