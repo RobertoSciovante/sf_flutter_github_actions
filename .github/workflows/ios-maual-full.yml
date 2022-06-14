@@ -14,11 +14,9 @@ jobs:
   build_ios:
     runs-on: macos-latest
     env:
-      SCHEME: Runner
+      SHEME: Runner
       BUILD_CONFIGURATION: Release
       TEAM_ID: ZS99A4QXZW
-      PROVISIONING_PROFILE: 4136756c-cd4d-4e07-b422-309170a22b51
-      CODE_SIGN_IDENTITY: "iPhone Distribution: Starting Finance Srl (ZS99A4QXZW)"
 
     steps:
       - name: Checkout the code
@@ -63,28 +61,21 @@ jobs:
           path: build/ios/iphoneos/Runner.app
 
       - name: Build resolve Swift dependencies
-        run: xcodebuild -resolvePackageDependencies -workspace ios/Runner.xcworkspace -scheme ${{ env.SCHEME }} -configuration ${{ env.BUILD_CONFIGURATION }}
+        run: xcodebuild -resolvePackageDependencies -workspace ios/Runner.xcworkspace -scheme ${{ env.SHEME }} -configuration ${{ env.BUILD_CONFIGURATION }}
 
       - name: Build xArchive
         run: |
           xcodebuild \
           -workspace ios/Runner.xcworkspace \
-          -scheme ${{ env.SCHEME }} \
+          -scheme ${{ env.SHEME }} \
           -configuration ${{ env.BUILD_CONFIGURATION }} \
           DEVELOPMENT_TEAM=${{ env.TEAM_ID }} \
           -sdk 'iphoneos' \
           -destination 'generic/platform=iOS' \
           -archivePath build-output/app.xcarchive \
-          PROVISIONING_PROFILE=${{ env.PROVISIONING_PROFILE }} \
+          PROVISIONING_PROFILE=4136756c-cd4d-4e07-b422-309170a22b51 \
           clean archive \
-          CODE_SIGN_IDENTITY=${{ env.CODE_SIGN_IDENTITY }} \
-
-      #      - name: Upload app.xcarchive
-      #        uses: actions/upload-artifact@v1
-      #        with:
-      #          name: app-manual.xcarchive
-      #          path: /Users/runner/work/ScrumPoker/ScrumPoker/build-output/app.xcarchive
-
+          CODE_SIGN_IDENTITY="iPhone Distribution: Starting Finance Srl (ZS99A4QXZW)"
 
       - name: Export ipa
         run: xcodebuild -exportArchive -archivePath build-output/app.xcarchive -exportPath build-output/ios -exportOptionsPlist ios/ExportOptions.plist
