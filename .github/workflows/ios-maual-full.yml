@@ -69,15 +69,15 @@ jobs:
         run: |
           xcodebuild \
           -workspace ios/Runner.xcworkspace \
-          -scheme ${{ env.SHEME }} \
+          -scheme ${{ env.SCHEME }} \
           -configuration ${{ env.BUILD_CONFIGURATION }} \
           DEVELOPMENT_TEAM=${{ env.TEAM_ID }} \
           -sdk 'iphoneos' \
           -destination 'generic/platform=iOS' \
           -archivePath build-output/app.xcarchive \
-          PROVISIONING_PROFILE=4136756c-cd4d-4e07-b422-309170a22b51 \
+          PROVISIONING_PROFILE=${{ env.PROVISIONING_PROFILE }} \
           clean archive \
-          CODE_SIGN_IDENTITY="iPhone Distribution: Starting Finance Srl (ZS99A4QXZW)"
+          CODE_SIGN_IDENTITY=${{ env.CODE_SIGN_IDENTITY }} \
 
       #      - name: Upload app.xcarchive
       #        uses: actions/upload-artifact@v1
